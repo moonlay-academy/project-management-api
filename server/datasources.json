@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mssql": {
+    "host": "mindpalace",
+    "port": 1435,
+    "url": "mssql://sa:FuturePast.`12@mindpalace:1435/moonlay-project-management-dev",
+    "database": "moonlay-project-management-dev",
+    "password": "FuturePast.`23",
+    "name": "mssql",
+    "user": "sa",
+    "connector": "mssql"
+  }
+}
