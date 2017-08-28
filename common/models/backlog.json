@@ -1,0 +1,102 @@
+{
+  "name": "Backlog",
+  "plural": "Backlogs",
+  "base": "Base",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mssql": {
+      "table": "Backlogs"
+    }
+  },
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "weight": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "budget": {
+      "type": "number",
+      "required": true,
+      "description": [
+        "budget in man workday"
+      ],
+      "default": 1
+    },
+    "budgetused": {
+      "type": "number",
+      "required": true,
+      "description": [
+        "budget used in man workhour"
+      ],
+      "default": 0
+    },
+    "planstart": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "planend": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "actualstart": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "actualend": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "remark": {
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "Project",
+      "foreignKey": "projectId"
+    },
+    "tasks": {
+      "type": "hasMany",
+      "model": "Task",
+      "foreignKey": "backlogId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

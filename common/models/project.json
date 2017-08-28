@@ -1,0 +1,81 @@
+{
+  "name": "Project",
+  "plural": "Projects",
+  "base": "Base",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mssql": {
+      "table": "Projects"
+    }
+  },
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "planstart": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "planend": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "actualstart": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "actualend": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "remark": {
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    }
+  },
+  "validations": [],
+  "relations": {
+    "backlogs": {
+      "type": "hasMany",
+      "model": "Backlog",
+      "foreignKey": "projectId"
+    },
+    "tasks": {
+      "type": "hasMany",
+      "model": "Task",
+      "foreignKey": "projectId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

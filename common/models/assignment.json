@@ -1,0 +1,92 @@
+{
+  "name": "Assignment",
+  "plural": "Assignments",
+  "base": "Base",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mssql": {
+      "table": "Assignments"
+    }
+  },
+  "properties": {
+    "weight": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "budget": {
+      "type": "number",
+      "required": true,
+      "description": [
+        "budget in man workhour"
+      ],
+      "default": 1
+    },
+    "budgetused": {
+      "type": "number",
+      "required": true,
+      "description": [
+        "budget used in man workhour"
+      ],
+      "default": 0
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "planstart": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "planend": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "actualstart": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "actualend": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "remark": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "task": {
+      "type": "belongsTo",
+      "model": "Task",
+      "foreignKey": "taskId"
+    },
+    "timerecords": {
+      "type": "hasMany",
+      "model": "Timerecord",
+      "foreignKey": "assignmentId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

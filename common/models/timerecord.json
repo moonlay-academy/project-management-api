@@ -1,0 +1,62 @@
+{
+  "name": "Timerecord",
+  "base": "Base",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mssql": {
+      "table": "Timerecords"
+    }
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "begin": {
+      "type": "date",
+      "required": true,
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "end": {
+      "type": "date",
+      "default": "$now",
+      "mssql": {
+        "dataType": "datetime2"
+      }
+    },
+    "duration": {
+      "type": "number",
+      "required": true
+    },
+    "remark": {
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    }
+  },
+  "validations": [],
+  "relations": {
+    "assignment": {
+      "type": "belongsTo",
+      "model": "Assignment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

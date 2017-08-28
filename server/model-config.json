@@ -34,7 +34,23 @@
     "dataSource": "db",
     "public": false
   },
-  "Test": {
+  "Project": {
+    "dataSource": "mssql",
+    "public": true
+  },
+  "Backlog": {
+    "dataSource": "mssql",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "mssql",
+    "public": true
+  },
+  "Assignment": {
+    "dataSource": "mssql",
+    "public": true
+  },
+  "Timerecord": {
     "dataSource": "mssql",
     "public": true
   }
